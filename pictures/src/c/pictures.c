@@ -169,7 +169,7 @@ main(int argc, char **argv)
 
         /* Read S strings of length E into a buffer */
         for (s = 0; s < S; s++) {
-            shots[s] = malloc(E*sizeof(char));
+            shots[s] = malloc((E+1)*sizeof(char));
             scanf("%s", shots[s]);
         }
 
