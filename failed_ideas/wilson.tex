@@ -1,0 +1,129 @@
+\documentclass[11pt]{article}
+\usepackage{tabularx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+
+%Gummi|065|=)
+\title{\textbf{Scoring Upvotes}}
+\author{Nick Smith}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Problem Statement}
+Reddit, the community-driven social news and entertainment site, places a
+strong emphasis on user-submitted content and comments. Due to the nature
+of user-created comments, it is important to have a way to differentiate
+the ``good'' comments from the ``bad'' comments. On Reddit, this is
+implemented using an upvote/downvote system, where users can judge each
+other's comments to pick out which contribute to the conversation and
+which are useless.
+\\\\
+In 2009, Reddit switched their default comment sorting algorithm from ``top''
+to ``best'' sorting. The new ``best'' sorting ranks comments based on the \underline{lower bound}
+of a comment's Wilson score. The Wilson score is a confidence interval
+based on the number of upvotes and downvotes a comment has received which is
+used to determine where it belongs in the ranking.
+\\\\
+The Wilson score is a confidence interval defined by the following formula:
+\begin{center}
+\fontsize{16pt}{16pt}
+$\left(\ \hat{p} - \frac{z^2}{2n} \pm z\sqrt{\left[\hat{p}(1 - \hat{p}) + \frac{z^2}{4n}\right]/n}\ \right)/(1 + \frac{z^2}{n})$
+\end{center}
+Where $\hat{p}$ is the \emph{observed} fraction of positive ratings, $n$ is
+the total number of ratings, and $z$ is the appropriate z-score for the
+confidence interval (Reddit uses a 95\% confidence interval, so for this you
+can assume that $z = 1.96$).
+\\\\
+Reddit user \texttt{/u/Here\_Comes\_the\_King} posts a comment on a popular
+thread in \texttt{/r/trees}. Given the current upvote/downvote counts of
+\texttt{/u/Here\_Comes\_the\_King}'s comment and the top comment, and the
+rate at which each comment is being upvoted,
+compute how long will it take \texttt{/u/Here\_Comes\_the\_King}'s comment
+to overtake the current highest-ranked comment.
+
+\section{Input}
+The first line of input contains a single integer $\boldsymbol{P}$,
+$(\boldsymbol{1} \le \boldsymbol{P} \le \boldsymbol{1000})$, which is the
+number of data sets that follow. Each data set should be processed identically
+and independently.
+\\\\
+Each data set begins with a single line that contains $\boldsymbol{K}$, the data
+set number, followed by the integer numbers $\boldsymbol{U_t}\text,\ \boldsymbol{D_t},\ 
+\boldsymbol{U_k}\text,\ \boldsymbol{D_k}$, $(\boldsymbol{1} \le \boldsymbol{U_t},
+\boldsymbol{U_k} \le \boldsymbol{500},\ \boldsymbol{0} \le \boldsymbol{D_t},
+\boldsymbol{D_k} \le \boldsymbol{500})$ respectively, the number of upvotes and
+downvotes for the top comment and the number of upvotes and downvotes for
+\texttt{/u/Here\_Comes\_the\_King}'s comment. These are followed by two more
+integers $\boldsymbol{R_t}\text{ and }\boldsymbol{R_k}$, $(\boldsymbol{1} \le \boldsymbol{R_t},
+\boldsymbol{R_k} \le \boldsymbol{50})$ which indicate the number
+of upvotes that each comment is receiving \underline{per second}. These rates
+will never change and neither comment will receive any additional downvotes.
+
+\section{Output}
+For each data set there is a single line of output. The single line of output
+consists of the data set number $\boldsymbol{K}$, followed by a single space
+followed by the number of seconds (do not consider fractions of seconds) it
+will take until the top comment is overtaken. We will consider the top comment
+to be overtaken when its comment score is less than or equal to the user's
+comment's score. It is also possible that the top comment is never overtaken,
+in which case your program should output the text ``\texttt{NEVER}''
+(without quotes) instead.
+
+\section{Test Data}
+\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	Input & Output \\ \hline
+	\parbox[t]{5cm}{
+	\texttt{3\\
+			1 100 0 50 0 0 1\\
+			2 80 10 40 1 1 2\\
+			3 100 20 50 10 1 1\\
+	}} &
+	\parbox[t]{5cm}{
+	\texttt{1 50\\
+			2 ??\\
+			3 NEVER\\
+	}}\\
+	\hline
+\end{tabularx}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

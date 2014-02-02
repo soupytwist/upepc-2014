@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+
+%Gummi|065|=)
+\title{\textbf{Picture Day}}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Problem Statement}
+On group picture day, the entire team gathers outside to take a series of
+pictures for the company calendar. This year, human resources has decided
+that the employees will stand in the same order for every picture, but they
+may be asked to wear different color company shirts in each shots.
+\\\\
+For example, Alice, Bob and Charlie may wear red, yellow, and green shirts
+(respectively) in one picture and red, blue, and red shirts in another picture.
+There will be a number of pictures taken, each of which has its own arrangement
+of colors. The pictures, of course, can be taken in any order.
+\\\\
+To prevent this task from taking all day, you have been asked to plan the shots
+such that the employees will need to change their shirt the least number of times.
+\\\\
+\emph{Note}: For this problem, you are only asked to output the minimum number of changes,
+not the ordering. In addition, you are to assume that no employees are wearing company
+shirts at the start, and it does not matter what shirt each employee ends up with.
+
+\section{Input}
+The first line of input contains a single integer $\boldsymbol{P}$, $(\boldsymbol{1} \le \boldsymbol{P} \le \boldsymbol{100})$, which is the number of data sets that follow. Each
+data set should be processed identically and independently.
+\\\\
+Each data set begins with a single line that contains $\boldsymbol{K}$, the data
+set number, followed by $\boldsymbol{S}$, $(\boldsymbol{2} \le \boldsymbol{S} \le \boldsymbol{12})$
+which is the number of of photos that are to be taken and  $\boldsymbol{E}$,
+$(\boldsymbol{1} \le \boldsymbol{E} \le \boldsymbol{100})$, the number of employees
+that will be a part of the pictures. The next $\boldsymbol{P}$ lines contain $\boldsymbol{E}$
+characters each, which indicate the shirt color that each employee will wear for a
+particular photo. The shirt colors are described by a single letter \texttt{a}-\texttt{z},
+where e.g ``\texttt{a}'' represents some color.
+
+\section{Output}
+For each data set there is a single line of output. The single line of output
+consists of the data set number $\boldsymbol{K}$, followed by a single space
+followed by the minimum number of shirt changes that are necessary to take all
+the photos.
+
+\section{Test Data}
+\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	Input & Output \\ \hline
+	\parbox[t]{5cm}{
+	\texttt{3\\
+			1 2 9\\
+			aaabbbccc\\
+			bbbaaaccc\\
+			2 3 4\\
+			aabb\\
+			babb\\
+			aaab\\
+			3 4 5\\
+			aabbc\\
+			aaaab\\
+			abbcc\\
+			aaabb\\
+	}} &
+	\parbox[t]{5cm}{
+	\texttt{1 6\\
+			2 2\\
+			3 5\\
+			}}\\
+	\hline
+\end{tabularx}
+\end{document}

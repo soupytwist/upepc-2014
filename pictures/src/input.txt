@@ -1,0 +1,13 @@
+3
+1 2 9
+aaabbbccc
+bbbaaaccc
+2 3 4
+aabb
+babb
+aaab
+3 4 5
+aabbc
+aaaab
+abbcc
+aaabb

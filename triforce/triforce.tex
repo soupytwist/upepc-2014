@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage{tabularx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usepackage{wrapfig}
+
+%Gummi|065|=)
+\title{\textbf{Triforce}}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Problem Statement}
+
+\definecolor{ltgray}{gray}{0.92}
+\begin{wrapfigure}{r}{3cm}
+\begin{tikzpicture}[scale=0.25]
+\coordinate (A) at (3, 5.196);
+\coordinate (B) at (0, 0);
+\coordinate (C) at (6,0);
+\coordinate (D) at (0, 0);
+\coordinate (E) at (-3, -5.196);
+\coordinate (F) at (3, -5.196);
+\coordinate (G) at (6, 0);
+\coordinate (H) at (3, -5.196);
+\coordinate (I) at (9, -5.196);
+
+\draw[fill=ltgray] (A) -- (B) -- (C) -- cycle;
+\draw[fill=ltgray] (D) -- (E) -- (F) -- cycle;
+\draw[fill=ltgray] (G) -- (H) -- (I) -- cycle;
+\end{tikzpicture}
+\end{wrapfigure}
+A ``Triforce'', the fictional relic from Nintendo's \emph{The Legend of Zelda}
+video games, is composed of three identical equilateral triangles that connect
+at their vertices to form a larger triangle (as pictured).
+\\\\
+Given a group of three triangles, defined by their vertices on a 2D plane,
+your task is to determine whether they form a Triforce. The shape that is
+formed may be of arbitrary size and can be rotated at any angle.\\
+\\\\
+To allow a small amount of tolerance in floating point arithmetic,
+your program should consider two values to be equivalent if they are within
+\texttt{0.01} of each other. Use this for comparison operations only-- all other
+aritmetic operations should be applied normally.
+\begin{center}
+$a \equiv b\ \rightarrow\ -0.01 \le a - b \le 0.01$
+\\\bigskip
+\small(This is just to ensure that comparisons are accurate. Don't take this
+so seriously.)
+\end{center}
+
+\section{Input}
+The first line of input contains a single integer $\boldsymbol{P}$,
+$(\boldsymbol{1} \le \boldsymbol{P} \le \boldsymbol{1000})$, which is the
+number of data sets that follow. Each data set should be processed identically
+and independently.
+\\\\
+Each data set begins with a single line that contains $\boldsymbol{K}$, the data
+set number, followed by nine (9) lines, each of which contains a pair of decimal numbers
+$(\boldsymbol{X},\ \boldsymbol{Y})$, $(-5000 \le \boldsymbol{X},\boldsymbol{Y} \le 5000)$
+which represent coordinates on a 10,000 $\times$ 10,000 plane. The first three
+coordinates make up one triangle, the middle three the second triangle, and
+the last three the third triangle.
+
+\section{Output}
+For each data set there is a single line of output. The single line of output
+consists of the data set number $\boldsymbol{K}$, followed by a single space
+followed by the letter \texttt{Y} if triangles form a Triforce or the letter
+\texttt{N} if they do not.
+
+\section{Test Data}
+\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	Input & Output \\ \hline
+	\parbox[t]{5cm}{
+	\texttt{3\\
+			1\\
+			0.0 0.0\\
+			10.0 0.0\\
+			5.0 8.66025404\\
+			0.0 0.0\\
+			-5.0 -8.66025404\\
+			5.0 -8.66025404\\
+			10.0 0.0\\
+			5.0 -8.66025404\\
+			15.0 -8.66025404\\
+			2\\
+			289.89028617 294.11000192\\
+			1106.42189681 -399.14414867\\
+			1298.53179718 654.62004443\\
+			289.89028617 294.11000192\\
+			-718.75122484 -66.40004058\\
+			97.78038580 -759.65419118\\
+			1106.42189681 -399.14414867\\
+			97.78038580 -759.65419118\\
+			914.31199643 -1452.90834177\\
+			3\\
+			0.0 0.0\\
+			20.0 10.0\\
+			5.0 8.66025404\\
+			0.0 0.0\\
+			-5.0 -8.66025404\\
+			5.0 -8.66025404\\
+			10.0 0.0\\
+			5.0 -8.66025404\\
+			15.0 -8.66025404\\
+	}} &
+	\parbox[t]{5cm}{
+	\texttt{1 Y\\
+			2 Y\\
+			3 N\\
+	}}\\
+	\hline
+\end{tabularx}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

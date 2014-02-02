@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+\usepackage{tabularx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+
+%Gummi|065|=)
+\title{\textbf{Shifty Auto-Correct}}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Problem Statement}
+The latest version of the Blandroid mobile OS has a new auto-correct
+option that has been causing trouble for some users. The feature allows
+the user to enter rules into their keyboard software so that when a particular
+word is matched, it is replaced with another word.
+\\\\
+Given the following rules:
+\begin{align}
+\texttt{teh} &\rightarrow \texttt{the} \\
+\texttt{youre} &\rightarrow \texttt{you're}
+\end{align}
+When the user types the phrase ``\texttt{youre teh best!}'', this will be
+automatically replaced with the intended ``\texttt{you're the best!}''. The
+problem is that this feature was not tested thoroughly and it has been shown
+to replace partial words. For example, with the above rules, if the user
+types ``\texttt{tehran}'', it will be replaced by ``\texttt{theran}''. In
+addition, the developer decided to apply the auto-correct replacement to the
+whole text every time it is changed. Rules are always applied in the order they
+are given, and when a replacement is made, the algorithm restarts at the first rule.
+\\\\
+Adding the rule:
+\begin{align}
+\texttt{re} &\rightarrow \texttt{are}
+\end{align}
+Causes the replacement:
+\begin{enumerate}
+\item ``\texttt{youre teh best!}''
+\item ``\texttt{youre the best!}''
+\item ``\texttt{you're the best!}''
+\item ``\texttt{you'are the best!}''
+\item ``\texttt{you'aare the best!}''
+\item ``\texttt{you'aaare the best!}''
+\item ``\texttt{you'aaaare the best!}'' \ldots continues indefinitely
+\end{enumerate}
+\bigskip
+You have been commissioned to write a program to detect when the replacement
+rules cause the algorithm to enter into an infinite loop, as shown in the
+example above.
+
+\section{Input}
+The first line of input contains a single integer $\boldsymbol{P}$,
+$(\boldsymbol{1} \le \boldsymbol{P} \le \boldsymbol{1000})$, which is the
+number of data sets that follow. Each data set should be processed identically
+and independently.
+\\\\
+Each data set begins with a single line that contains $\boldsymbol{K}$, the data
+set number, followed by $\boldsymbol{R}$,
+$(\boldsymbol{1} \le \boldsymbol{R} \le \boldsymbol{1000})$ which is the number
+of replacement rules that will follow.
+\\\\
+The next $\boldsymbol{R}$ lines contain two strings $(\boldsymbol{w_\text{old},\ w_\text{new}})$
+which, respectively, indicate a word that should be replaced and what word to replace it with.
+Each word is composed of between 1 and 10 non-whitespace characters and they are separated
+by a single space. Replacements are always case sensitive, i.e ``\texttt{hello}'' is treated
+differently than ``\texttt{Hello}''.
+
+\section{Output}
+For each data set there is a single line of output. The single line of output
+consists of the data set number $\boldsymbol{K}$, followed by a single space
+followed by the letter \texttt{Y} if the rules create an infinite loop or the
+letter \texttt{N} if they do not.
+
+\section{Test Data}
+\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	Input & Output \\ \hline
+	\parbox[t]{5cm}{
+	\texttt{3\\
+			1 3\\
+			youre you're\\
+			teh the\\
+			re are\\
+			2 2\\
+			hell heck\\
+			helo hello\\
+			3 3\\
+			they're there\\
+			their they're\\
+			there their\\
+	}} &
+	\parbox[t]{5cm}{
+	\texttt{1 Y\\
+			2 N\\
+			3 Y\\
+	}}\\
+	\hline
+\end{tabularx}
+
+\end{document}
