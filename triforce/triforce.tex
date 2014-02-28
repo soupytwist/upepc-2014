@@ -37,20 +37,9 @@ A ``Triforce'', the fictional relic from Nintendo's \emph{The Legend of Zelda}
 video games, is composed of three identical equilateral triangles that connect
 at their vertices to form a larger triangle (as pictured).
 \\\\
-Given a group of three triangles, defined by their vertices on a 2D plane,
+Given a set of three triangles, defined by their vertices on a 2D plane,
 your task is to determine whether they form a Triforce. The shape that is
 formed may be of arbitrary size and can be rotated at any angle.\\
-\\\\
-To allow a small amount of tolerance in floating point arithmetic,
-your program should consider two values to be equivalent if they are within
-\texttt{0.01} of each other. Use this for comparison operations only-- all other
-aritmetic operations should be applied normally.
-\begin{center}
-$a \equiv b\ \rightarrow\ -0.01 \le a - b \le 0.01$
-\\\bigskip
-\small(This is just to ensure that comparisons are accurate. Don't take this
-so seriously.)
-\end{center}
 
 \section{Input}
 The first line of input contains a single integer $\boldsymbol{P}$,
@@ -78,35 +67,7 @@ followed by the letter \texttt{Y} if triangles form a Triforce or the letter
 	\parbox[t]{5cm}{
 	\texttt{3\\
 			1\\
-			0.0 0.0\\
-			10.0 0.0\\
-			5.0 8.66025404\\
-			0.0 0.0\\
-			-5.0 -8.66025404\\
-			5.0 -8.66025404\\
-			10.0 0.0\\
-			5.0 -8.66025404\\
-			15.0 -8.66025404\\
-			2\\
-			289.89028617 294.11000192\\
-			1106.42189681 -399.14414867\\
-			1298.53179718 654.62004443\\
-			289.89028617 294.11000192\\
-			-718.75122484 -66.40004058\\
-			97.78038580 -759.65419118\\
-			1106.42189681 -399.14414867\\
-			97.78038580 -759.65419118\\
-			914.31199643 -1452.90834177\\
-			3\\
-			0.0 0.0\\
-			20.0 10.0\\
-			5.0 8.66025404\\
-			0.0 0.0\\
-			-5.0 -8.66025404\\
-			5.0 -8.66025404\\
-			10.0 0.0\\
-			5.0 -8.66025404\\
-			15.0 -8.66025404\\
+      TODO
 	}} &
 	\parbox[t]{5cm}{
 	\texttt{1 Y\\
