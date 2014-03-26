@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+
+%Gummi|065|=)
+\title{\textbf{IPvX}}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Problem Statement}
+
+\subsection{Background}
+IPv4 addresses are 32 bits long, typically represented by 4 integer numbers ranging 0-255, separated by periods. For instance, \texttt{155.246.89.22} is the human-readable representation of an IP address, in binary this is \texttt{10011011 11110110 01011001 00010110}. To create networks, IPv4 addresses are divided into two parts: the \emph{network prefix} and the \emph{host component}. Two IP addresses are on the same network if they have the same \emph{network prefix}.
+\\\\
+The \emph{netmask} defines the bits that will be used to determine the network prefix portion of an IP address. In IPv4 this is represented by 32 bits where a \texttt{1} indicates that the bit is part of the network prefix and a \texttt{0} indicates it is part of the host component.
+\\\\
+If the network prefix is 16 bits long, then the above IP address \texttt{155.246.89.22/16} is on the network \texttt{10011011 11110110 00000000 00000000}. This is found simply by performing a bitwise \texttt{AND} operation on the IP address and the netmask. The netmask, in this case, is \texttt{255.255.0.0} or 
+\texttt{11111111 11111111 00000000 00000000} (16 leading \texttt{1}'s, hence the 16-bit network prefix).
+
+\subsection{Problem}
+The proposed IPvX specification takes a different approach for addressing. Whereas IPv4 uses the first 16 bits of a 32-bit address for the network prefix, IPvX allows for addresses of length $m$, where $1 \le m \le 64$, which can use up to $m-1$ bits for the network prefix. Additionally, the $n$ bits used for the network prefix (bits that are set to \texttt{1}) may begin anywhere in the netmask and do not have to be contiguous. The bits for the \emph{host component} (indicated by \texttt{0}'s) must be contiguous.
+\\\\ 
+\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	\texttt{11111111 00000000 = 65,280} & valid (m = 16, n = 8)\\ \hline
+	\texttt{11111111 11111100 = 65,532} & valid (m = 16, n = 14)\\ \hline
+	\texttt{11110000 00001111 = 61,455} & valid (m = 16, n = 8)\\ \hline
+	\texttt{11110000 11110000 = 61,680} & invalid (m = 16, n = 8)\\ \hline
+\end{tabularx}
+\\\\
+Given the specification, you must write a program to output all of the valid netmasks for a given IPvX configuration.
+
+\section{Input}
+The first line of input contains a single integer $\boldsymbol{P}$, $(\boldsymbol{1} \le \boldsymbol{P} \le \boldsymbol{10,000})$, which is the number of data sets that follow. Each
+data set should be processed identically and independently.
+\\\\
+Each data set begins with a single line that contains $\boldsymbol{K}$, the data
+set number, followed by $\boldsymbol{M}$, $(\boldsymbol{1} \le \boldsymbol{M} \le \boldsymbol{64})$
+which is the number of bits in each address and  $\boldsymbol{N}$,
+$(\boldsymbol{1} \le \boldsymbol{N} < \boldsymbol{M})$, the number of bits that make up the network prefix.
+
+\section{Output}
+For each data set there is a single line of output. The single line of output
+consists of the data set number $\boldsymbol{K}$, followed by a single space
+followed by, \textbf{in increasing order}, a space-separated list of the valid netmasks
+in their decimal representation (e.g $\texttt{11110000}_2 = 240_{10}$).
+\begin{center}\emph{Note}: It's okay to have leading or trailing spaces; these will simply be ignored.\end{center}
+
+\section{Test Data}
+\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	Input & Output \\ \hline
+	\parbox[t]{5cm}{
+	\texttt{3\\
+			1 4 2\\
+			2 4 1\\
+			3 6 3\\
+	}} &
+	\parbox[t]{5cm}{
+	\texttt{1 3 9 12\\
+			2 1 8\\
+			3 7 35 49 56\\
+			}}\\
+	\hline
+\end{tabularx}
+\end{document}
