@@ -2,14 +2,17 @@
 \usepackage{tabularx}
 \usepackage{fancybox}
 \usepackage{amsmath}
-\usepackage[margin=1in]{geometry}
+\usepackage[top=1.5in,bottom=1in,right=1in,left=1in,headheight=65pt]{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
 
 %Gummi|065|=)
-\title{\textbf{Honor Coding}}
-\date{}
 \begin{document}
+\pagestyle{fancy}
 
-\maketitle
+\fancyhead[L]{Stevens UPEPC\\12 April 2014}
+\fancyhead[C]{{\LARGE\textbf{Honor Coding}}}
+\fancyhead[R]{\includegraphics[height=32pt]{../stevenslogo.eps}\ \ \ \includegraphics[height=32pt]{../upelogo.png}}
 
 \section{Problem Statement}
 
@@ -32,7 +35,7 @@ and he has 4 students to seat, they could be sat as follows:
  		& 1 & & 2 & \\ \hline
 		& 3 & & 4 & \\
  		\hline
-\end{tabular}
+\end{tabular} \ \ GOOD
 \end{center}
 \smallskip
 In an alternative arrangement, he is concerned that students 1 and 2 will copy
@@ -46,7 +49,7 @@ each other's tests, and student 4 will cheat off of students 2 and 3.
  		1 & 2 & & 3 & \\ \hline
 		& & 4 & & \\
  		\hline
-\end{tabular}
+\end{tabular} \ \ BAD
 \end{center}
 \bigskip
 Unfortunately for the Professor, many of the classrooms have broken desks,
@@ -63,7 +66,7 @@ as follows (X's are used to mark desks that are broken and cannot be used).
  		X & X & 1 & & 2 \\ \hline
 		3 & & X & & 4 \\
  		\hline
-\end{tabular}
+\end{tabular}\ \ GOOD
 \end{center}
 \bigskip
 Professor Nicolosi wants to determine the maximum number of students he can sit

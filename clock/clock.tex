@@ -1,16 +1,19 @@
-\documentclass[11pt]{article}
+\documentclass[a4paper,11pt,oneside]{article}
 \usepackage{tabularx}
 \usepackage{fancybox}
 \usepackage{amsmath}
-\usepackage[margin=1in]{geometry}
+\usepackage[top=1.5in,bottom=1in,right=1in,left=1in,headheight=65pt]{geometry}
 \usepackage{graphicx}
+\usepackage{fancyhdr}
 
 %Gummi|065|=)
-\title{\textbf{Time Out}}
-\date{}
 \begin{document}
+\pagestyle{fancy}
 
-\maketitle
+\fancyhead[L]{Stevens UPEPC\\12 April 2014}
+\fancyhead[C]{{\LARGE\textbf{Time Out}}}
+\fancyhead[R]{\includegraphics[height=32pt]{../stevenslogo.eps}\ \ \ \includegraphics[height=32pt]{../upelogo.png}}
+
 
 \section{Problem Statement}
 
@@ -28,8 +31,8 @@ The displays he has seen so far have been:
 \\\\
 Based on his previous observations, can Steven accurately determine the current time,
 shown by last clock display? More generally, given the previous observations and the
-current clock display, your job is to determine current time, unless this is not
-possible to do with 100\% accuracy.
+current clock display, your job is to determine the current time, unless it is not
+possible to do with certainty.
 
 \section{Input}
 The first line of input contains a single integer $\boldsymbol{P}$,

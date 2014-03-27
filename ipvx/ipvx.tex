@@ -1,14 +1,19 @@
 \documentclass[11pt]{article}
 \usepackage{tabularx}
 \usepackage{amsmath}
-\usepackage[margin=1in]{geometry}
+\usepackage[top=1.5in,bottom=1in,right=1in,left=1in,headheight=65pt]{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
 
 %Gummi|065|=)
 \title{\textbf{IPvX}}
 \date{}
 \begin{document}
+\pagestyle{fancy}
 
-\maketitle
+\fancyhead[L]{Stevens UPEPC\\12 April 2014}
+\fancyhead[C]{{\LARGE\textbf{IPvX}}}
+\fancyhead[R]{\includegraphics[height=32pt]{../stevenslogo.eps}\ \ \ \includegraphics[height=32pt]{../upelogo.png}}
 
 \section{Problem Statement}
 
@@ -21,7 +26,7 @@ If the network prefix is 16 bits long, then the above IP address \texttt{155.246
 \texttt{11111111 11111111 00000000 00000000} (16 leading \texttt{1}'s, hence the 16-bit network prefix).
 
 \subsection{Problem}
-The proposed IPvX specification takes a different approach for addressing. Whereas IPv4 uses the first 16 bits of a 32-bit address for the network prefix, IPvX allows for addresses of length $m$, where $1 \le m \le 64$, which can use up to $m-1$ bits for the network prefix. Additionally, the $n$ bits used for the network prefix (bits that are set to \texttt{1}) may begin anywhere in the netmask and do not have to be contiguous. The bits for the \emph{host component} (indicated by \texttt{0}'s) must be contiguous.
+The proposed IPvX specification takes a different approach for addressing. Whereas IPv4 may use the first (most significant) 16 bits of a 32-bit address for the network prefix, IPvX allows for addresses of length $m$, where $1 \le m \le 64$, which can use up to $m-1$ bits for the network prefix. Additionally, the $n$ bits used for the network prefix (bits that are set to \texttt{1}) do not have to be the first $n$ bits in the string, however the bits for the host component (indicated by \texttt{0}'s) must be contiguous.
 \\\\ 
 \begin{tabularx}{\textwidth}{|X|X|}
 	\hline

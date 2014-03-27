@@ -2,16 +2,19 @@
 \usepackage{tabularx}
 \usepackage{fancybox}
 \usepackage{amsmath}
-\usepackage[margin=1in]{geometry}
 \usepackage{tikz}
 \usepackage{wrapfig}
+\usepackage[top=1.5in,bottom=1in,right=1in,left=1in,headheight=65pt]{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
 
 %Gummi|065|=)
-\title{\textbf{Triforce}}
-\date{}
 \begin{document}
+\pagestyle{fancy}
 
-\maketitle
+\fancyhead[L]{Stevens UPEPC\\12 April 2014}
+\fancyhead[C]{{\LARGE\textbf{Triforce}}}
+\fancyhead[R]{\includegraphics[height=32pt]{../stevenslogo.eps}\ \ \ \includegraphics[height=32pt]{../upelogo.png}}
 
 \section{Problem Statement}
 
@@ -39,7 +42,7 @@ at their vertices to form a larger triangle (as pictured).
 \\\\
 Given a set of three triangles, defined by their vertices on a 2D plane,
 your task is to determine whether they form a Triforce. The shape that is
-formed may be of arbitrary size and can be rotated at any angle.\\
+formed may be of any size and can be rotated at any angle.
 
 \section{Input}
 The first line of input contains a single integer $\boldsymbol{P}$,
