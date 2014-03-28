@@ -16,6 +16,7 @@
 \fancyhead[C]{{\LARGE\textbf{Triforce}}}
 \fancyhead[R]{\includegraphics[height=32pt]{../stevenslogo.eps}\ \ \ \includegraphics[height=32pt]{../upelogo.png}}
 
+
 \section{Problem Statement}
 
 \definecolor{ltgray}{gray}{0.92}
@@ -40,9 +41,20 @@ A ``Triforce'', the fictional relic from Nintendo's \emph{The Legend of Zelda}
 video games, is composed of three identical equilateral triangles that connect
 at their vertices to form a larger triangle (as pictured).
 \\\\
-Given a set of three triangles, defined by their vertices on a 2D plane,
+Given a group of three triangles, defined by their vertices on a 2D plane,
 your task is to determine whether they form a Triforce. The shape that is
-formed may be of any size and can be rotated at any angle.
+formed may be of arbitrary size and can be rotated at any angle.\\
+\\\\
+To allow a small amount of tolerance in floating point arithmetic,
+your program should consider two values to be equivalent if they are within
+\texttt{0.1} of each other. Use this for comparison operations only-- all other
+aritmetic operations should be handled normally.
+\begin{center}
+$a \equiv b\ \iff\ -0.1 \le a - b \le 0.1$
+\\\bigskip
+\small(This is just to ensure that comparisons are accurate. Don't take this
+so seriously.)
+\end{center}
 
 \section{Input}
 The first line of input contains a single integer $\boldsymbol{P}$,
@@ -56,6 +68,9 @@ $(\boldsymbol{X},\ \boldsymbol{Y})$, $(-5000 \le \boldsymbol{X},\boldsymbol{Y} \
 which represent coordinates on a 10,000 $\times$ 10,000 plane. The first three
 coordinates make up one triangle, the middle three the second triangle, and
 the last three the third triangle.
+\begin{center}
+\emph{Note:} Coordinates are NOT integers. Each value given will have 2 digits after the decimal.
+\end{center}
 
 \section{Output}
 For each data set there is a single line of output. The single line of output
@@ -70,7 +85,35 @@ followed by the letter \texttt{Y} if triangles form a Triforce or the letter
 	\parbox[t]{5cm}{
 	\texttt{3\\
 			1\\
-      TODO
+			0.00 0.00\\
+			10.00 0.00\\
+			5.00 8.66\\
+			0.00 0.00\\
+			-5.00 -8.66\\
+			5.00 -8.66\\
+			10.00 0.00\\
+			5.00 -8.66\\
+			15.00 -8.66\\
+			2\\
+			289.89 294.11\\
+			1106.42 -399.14\\
+			1298.53 654.62\\
+			289.89 294.11\\
+			-718.75 -66.40\\
+			97.78 -759.65\\
+			1106.42 -399.14\\
+			97.78 -759.65\\
+			914.31 -1452.90\\
+			3\\
+			0.00 0.00\\
+			20.00 10.00\\
+			5.00 8.66\\
+			0.00 0.00\\
+			-5.00 -8.66\\
+			5.00 -8.66\\
+			10.00 0.00\\
+			5.00 -8.66\\
+			15.00 -8.66\\
 	}} &
 	\parbox[t]{5cm}{
 	\texttt{1 Y\\

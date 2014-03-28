@@ -8,8 +8,10 @@
 #define true 1
 #endif
 
+#define SLACK 0.1
+
 typedef struct t_vertex {
-    int x, y;
+    float x, y;
 } vertex;
 
 typedef struct t_triangle {
@@ -22,7 +24,7 @@ typedef struct t_triangle {
 inline void
 scan_triangle(triangle *t)
 {
-    scanf("%d %d %d %d %d %d", &(t->v[0].x), &(t->v[0].y),
+    scanf("%f %f %f %f %f %f", &(t->v[0].x), &(t->v[0].y),
         &(t->v[1].x), &(t->v[1].y), &(t->v[2].x), &(t->v[2].y));
 }
 
@@ -30,10 +32,19 @@ scan_triangle(triangle *t)
  * Calculates the Euclidean distance
  * between the two vertices
  */
-inline int
+inline float
 dist(vertex *v1, vertex *v2)
 {
-    return pow(v1->x - v2->x, 2) + pow(v1->y - v2->y, 2);
+    return sqrtf(powf(v1->x - v2->x, 2) + powf(v1->y - v2->y, 2));
+}
+
+/**
+ * Equality comparison with tolerance for floats
+ */
+inline bool
+close_enough(float f1, float f2)
+{
+    return fabs(f2 - f1) <= SLACK;
 }
 
 /**
@@ -50,16 +61,16 @@ is_equilateral(triangle *t)
     d3_1 = dist(&(t->v[2]), &(t->v[0]));
 
     /* Triangle is equilateral if all 3 distances are equal and non-zero */
-    return d1_2 != 0 && d1_2 == d2_3 && d2_3 == d3_1;
+    return !close_enough(d1_2, 0) && close_enough(d1_2, d2_3) && close_enough(d2_3, d3_1);
 }
 
 /**
  * Checks if two vertices are at the same point in space
  */
-inline bool
+bool
 overlap(vertex *v1, vertex *v2)
 {
-    return v1->x == v2->x && v1->y == v2->y;
+    return close_enough(v1->x, v2->x) && close_enough(v1->y, v2->y);
 }
 
 /**
@@ -126,18 +137,16 @@ is_triforce(triangle t[3])
 int
 main(int argc, char **argv)
 {
-    int T, t, i;
-    triangle tri[3];
+    int i;
+    triangle t[3];
 
-    /* Number of test cases that follow */
-    scanf("%d", &T);
+    for (i = 0; i < 3; i++)
+        scan_triangle(&t[i]);
 
-    for (t = 1; t <= T; t++) {
-        for (i = 0; i < 3; i++)
-            scan_triangle(&tri[i]);
-
-        printf("%c\n", is_triforce(tri) ? 'Y' : 'N');
-    }
+    if (is_triforce(t))
+        printf("it's a triforce!\n");
+    else
+        printf("no triforce here, buddy\n");
 
     return 0;
 }
