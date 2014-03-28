@@ -1,5 +1,9 @@
 *.pdf
 *.swp
 *.o
+*.in
+*.out
+*.txt
 pictures/src/c/pictures
 honor/src/c/honor
+__pycache__
