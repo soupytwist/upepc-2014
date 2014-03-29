@@ -1,6 +1,7 @@
 *.pdf
 *.swp
 *.o
+*.class
 *.in
 *.out
 *.txt

@@ -1,0 +1,68 @@
+\documentclass[a4paper,11pt,oneside]{article}
+\usepackage{tabularx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage[top=1.5in,bottom=1in,right=1in,left=1in,headheight=65pt]{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+%Gummi|065|=)
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhead[L]{Stevens UPEPC\\Practice Problem}
+\fancyhead[C]{{\LARGE\textbf{Apples}}}
+\fancyhead[R]{\includegraphics[height=32pt]{../../stevenslogo.eps}\ \ \ \includegraphics[height=32pt]{../../upelogo.png}}
+
+
+\section{Problem Statement}
+Johnny has $A$ apples. Bob gives him $B$ more. Johnny then gives half, rounded up, to Sally.\\
+How many apples does Johnny have left?
+
+\section{Input}
+The first line of input contains a single integer $\boldsymbol{P}$,
+$(\boldsymbol{1} \le \boldsymbol{P} \le \boldsymbol{1000})$, which is the
+number of data sets that follow. Each data set should be processed identically
+and independently.
+\\\\
+Each data set begins with a single line that contains $\boldsymbol{K}$, the data
+set number, followed by two numbers $\boldsymbol{A}$ and $\boldsymbol{B}$,
+$(\boldsymbol{0} \le \boldsymbol{A}, \boldsymbol{B} \le 5 \times 10^{18})$, where
+$\boldsymbol{A}$ is the number of apples that Johnny starts with and $\boldsymbol{B}$ is
+the number of apples that Bob gives him.
+
+
+\section{Output}
+For each data set there is a single line of output consisting of the data set number $\boldsymbol{K}$,
+followed by a space followed by the number of apples that Johnny has left at the end of the exchanges.
+
+\section{Test Data}
+\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	Input & Output \\ \hline
+	\parbox[t]{5cm}{
+	\texttt{3\\
+			1 4 2\\
+			2 1 2\\
+			3 7 7\\
+	}} & \parbox[t]{5cm}{
+	\texttt{1 3\\
+			2 1\\
+			3 7\\
+	}}\\
+	\hline
+\end{tabularx}
+\\\\
+\\
+\textbf{Test Case \#1}\\
+Johnny starts with 4 apples and gets 2 more. He gives half of his 6 apples, 3, to Sally,
+leaving him with 3.
+\\\\
+\textbf{Test Case \#2}\\
+Johnny starts with 1 apple and gets 2 more. He gives 2 apples to Sally, being as he is
+generous and rounds up, leaving him with only 1.
+\\\\
+\textbf{Test Case \#3}\\
+Johnny starts with 7 apples, gets 7 more, and gives 7 away, leaving him with 7.
+
+\end{document}
