@@ -8,7 +8,7 @@
 #define true 1
 #endif
 
-#define MAXCLOCKS 11
+#define MAXCLOCKS 10
 #define LCD(x)  (1 << (x))
 #define BLANK   0
 #define ZERO    (LCD(0) | LCD(1) | LCD(3) | LCD(4) | LCD(5) | LCD(6))
@@ -106,8 +106,8 @@ main(int argc, char **argv)
         /* Reset the lit segments we have seen */
         lit[0] = lit[1] = lit[2] = lit[3] = 0;
 
-        /* Read in the N+1 clock faces- last clock face is the current time */
-        for (n = 0; n <= N; n++) {
+        /* Read in the N clock faces- last clock face is the current time */
+        for (n = 0; n < N; n++) {
             cl = &clocks[n*4];
             read_clock(cl);
 
@@ -116,7 +116,7 @@ main(int argc, char **argv)
         }
 
         /* Pointer to the last clock face- the current time */
-        now = &clocks[N*4];
+        now = &clocks[(N-1)*4];
         answer = -1;
 
         /* Check against all possible clocks for 'now' */
