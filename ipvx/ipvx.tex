@@ -26,7 +26,7 @@ If the network prefix is 16 bits long, then the above IP address \texttt{155.246
 \texttt{11111111 11111111 00000000 00000000} (16 leading \texttt{1}'s, hence the 16-bit network prefix).
 
 \subsection{Problem}
-The proposed IPvX specification takes a different approach for addressing. Whereas IPv4 may use the first (most significant) 16 bits of a 32-bit address for the network prefix, IPvX allows for addresses of length $m$, where $1 \le m \le 64$, which can use up to $m-1$ bits for the network component. Additionally, the $n$ bits used for the network component (bits that are set to \texttt{1}) do not have to be the first $n$ bits in the string, however the bits for the host component (indicated by \texttt{0}'s) must be contiguous.
+The proposed IPvX specification takes a different approach for addressing. Whereas IPv4 may use the first (most significant) 16 bits of a 32-bit address for the network prefix, IPvX allows for addresses of length $m$, where $2 \le m \le 64$, which can use $1 \le n < m$ bits for the network component. These $n$ bits used for the network component (bits that are set to \texttt{1}) do not have to be the first $n$ bits in the string, however the bits for the host component (indicated by \texttt{0}'s) must be contiguous.
 \\\\ 
 \begin{tabularx}{\textwidth}{|X|X|}
 	\hline
@@ -39,11 +39,11 @@ The proposed IPvX specification takes a different approach for addressing. Where
 Given the specification, you must write a program to output all of the valid netmasks for a given IPvX configuration.
 
 \section{Input}
-The first line of input contains a single integer $\boldsymbol{P}$, $(\boldsymbol{1} \le \boldsymbol{P} \le \boldsymbol{10,000})$, which is the number of data sets that follow. Each
+The first line of input contains a single integer $\boldsymbol{P}$, $(\boldsymbol{1} \le \boldsymbol{P} \le \boldsymbol{1,000})$, which is the number of data sets that follow. Each
 data set should be processed identically and independently.
 \\\\
 Each data set begins with a single line that contains $\boldsymbol{K}$, the data
-set number, followed by $\boldsymbol{M}$, $(\boldsymbol{1} \le \boldsymbol{M} \le \boldsymbol{64})$
+set number, followed by $\boldsymbol{M}$, $(\boldsymbol{2} \le \boldsymbol{M} \le \boldsymbol{64})$
 which is the number of bits in each address and  $\boldsymbol{N}$,
 $(\boldsymbol{1} \le \boldsymbol{N} < \boldsymbol{M})$, the number of bits that make up the network prefix.
 

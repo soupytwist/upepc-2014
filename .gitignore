@@ -6,5 +6,7 @@
 *.out
 *.txt
 pictures/src/c/pictures
+ipvx/src/c/ipvx
+ipvx/src/java/IPvX
 honor/src/c/honor
 __pycache__

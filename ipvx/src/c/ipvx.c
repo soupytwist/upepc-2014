@@ -3,21 +3,21 @@
 int
 main(int argc, char **argv)
 {
-    int K, k, M, N, junk;
+    int P, k, M, N, junk;
     unsigned long mask, gap, end;
 
-    scanf("%d", &K);
+    scanf("%d", &P);
 
-    for (k = 1; k <= K; k++) {
+    for (k = 1; k <= P; k++) {
         scanf("%d %d %d", &junk, &M, &N);
 
-        mask = (1L << M) - 1L;
+        mask = M < 64 ? (1L << M) - 1L : -1L;
         gap = mask ^ (mask >> (M-N));
         end = (1L << (M-N)) - 1L;
 
-        printf("%d ", k);
+        printf("%d", k);
         for (; gap >= end; gap >>= 1)
-            printf("%lu ", mask & ~gap);
+            printf(" %lu", mask & ~gap);
         printf("\n");
     }
 
