@@ -22,14 +22,16 @@ may be asked to wear different color company shirts in each shots.
 For example, Alice, Bob and Charlie may wear red, yellow, and green shirts
 (respectively) in one picture and red, blue, and red shirts in another picture.
 There will be a number of pictures taken, each of which has its own arrangement
-of colors. The pictures, of course, can be taken in any order.
+of colors.
 \\\\
 To prevent this task from taking all day, you have been asked to plan the shots
 such that the employees will need to change their shirt the least number of times.
+The pictures may be taken in any order, as long as a picture is taken with each arrangement.
 \\\\
 \emph{Note}: For this problem, you are only asked to output the minimum number of changes,
-not the ordering. In addition, you are to assume that no employees are wearing company
-shirts at the start, and it does not matter what shirt each employee ends up with.
+not the ordering. In addition, you are to assume that the employees will show up wearing
+the appropriate color shirt for the first picture (there is no need for any employee to change
+their shirt for the first picture), and it does not matter what shirt each employee ends up with.
 
 \section{Input}
 The first line of input contains a single integer $\boldsymbol{P}$, $(\boldsymbol{1} \le \boldsymbol{P} \le \boldsymbol{100})$, which is the number of data sets that follow. Each
@@ -76,4 +78,48 @@ the photos.
 			}}\\
 	\hline
 \end{tabularx}
+\\\\\\
+\textbf{Test Case \#1:}\\
+You must take 2 pictures with 9 employees. In this case, it doesn't matter which order the
+pictures are taken in, the first 6 employees must change their shirts between pictures. The
+last 3 employees are wearing the same color shirts in each photo, so they do not contribute
+to the total number of changes, resulting in a total of 6.
+\\\\
+\textbf{Test Case \#2:}\\
+There are 2 optimal orderings that minimize the number of changes to only 2.\\
+With 3 pictures and 4 employees, the following orderings are possible:\\
+$\texttt{aabb} \rightarrow \texttt{babb} \rightarrow \texttt{aaab}$ (3 changes)\ \ \ \ \ 
+$\texttt{aabb} \rightarrow \texttt{aaab} \rightarrow \texttt{babb}$ (3 changes)\\
+$\texttt{babb} \rightarrow \texttt{aabb} \rightarrow \texttt{aaab}$ (2 changes)\ \ \ \ \ 
+$\texttt{babb} \rightarrow \texttt{aaab} \rightarrow \texttt{aabb}$ (3 changes)\\
+$\texttt{aaab} \rightarrow \texttt{babb} \rightarrow \texttt{aabb}$ (3 changes)\ \ \ \ \ 
+$\texttt{aaab} \rightarrow \texttt{aabb} \rightarrow \texttt{babb}$ (2 changes)
+\\\\
+\textbf{Test Case \#3:}\\
+The ordering:
+($\texttt{aaaab} \rightarrow \texttt{aaabb} \rightarrow \texttt{aabbc} \rightarrow \texttt{abbcc}$)
+is an optimal solution for minimizing the number of shirt changes, and requires only 5.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
