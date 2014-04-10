@@ -137,16 +137,17 @@ is_triforce(triangle t[3])
 int
 main(int argc, char **argv)
 {
-    int i;
+    int i, P, p;
     triangle t[3];
 
-    for (i = 0; i < 3; i++)
-        scan_triangle(&t[i]);
+    scanf("%d", &P);
 
-    if (is_triforce(t))
-        printf("it's a triforce!\n");
-    else
-        printf("no triforce here, buddy\n");
+    for (p = 1; p <= P; p++) {
+        for (i = 0; i < 3; i++)
+            scan_triangle(&t[i]);
+
+        printf("%d %c\n", p, (is_triforce(t) ? 'Y' : 'N'));
+    }
 
     return 0;
 }
