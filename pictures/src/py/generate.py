@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import random
 import string
+import sys
 
 def hardness(h):
     numemps = int(random.expovariate(1/24))
@@ -22,6 +23,16 @@ def trial(h):
         "shots": shots,
     }
 
+def easy():
+    levels = list(range(2,7)) * 5
+    random.shuffle(levels)
+    trials = [trial(h) for h in levels]
+    
+    print(len(trials))
+    for i, t in enumerate(trials):
+        print("%d %d %d" % (i+1, t['S'], t['E']))
+        for s in t['shots']:
+            print(s)
 def hard():
     levels = list(range(2,4)) * 4    \
            + list(range(5,11)) * 14  \
@@ -29,11 +40,21 @@ def hard():
     random.shuffle(levels)
     trials = [trial(h) for h in levels]
     
-    print(100)
+    print(len(trials))
     for i, t in enumerate(trials):
         print("%d %d %d" % (i+1, t['S'], t['E']))
         for s in t['shots']:
             print(s)
 
 if __name__ == "__main__":
-    hard()
+    if len(sys.argv) != 2:
+        print("missing argument")
+        sys.exit(1)
+
+    if sys.argv[1] == 'easy':
+        easy()
+    elif sys.argv[1] == 'hard':
+        hard()
+    else:
+        print("unknown argument: %s" % (sys.argv[1]))
+        sys.exit(1)

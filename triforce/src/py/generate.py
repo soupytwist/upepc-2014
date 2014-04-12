@@ -20,7 +20,7 @@ def transform(vertices):
 
     sin = math.sin(rotation)
     cos = math.cos(rotation)
-    return [((cos*x + sin*y)*scalefactor + shiftx, (sin*x + cos*y)*scalefactor + shifty) for x, y in vertices]
+    return [((cos*x - sin*y)*scalefactor + shiftx, (sin*x + cos*y)*scalefactor + shifty) for x, y in vertices]
 
 def generate_triangles():
     triangles = [\
@@ -44,8 +44,8 @@ def generate_equilaterals():
 def generate_triforce():
     triangles = [\
         triangle(0, 0),
-        triangle(-1, math.sqrt(3)),
         triangle(-1, -1 * math.sqrt(3)),
+        triangle(1, -1 * math.sqrt(3)),
     ]
     random.shuffle(triangles)
     vertices = sum(triangles, [])
@@ -64,19 +64,32 @@ def generate_trapezoid():
 def easy():
     numvalid = random.randint(50, 70)
     valid = [generate_triforce() for i in range(numvalid)]
-    invalid = [generate_triangles() for i in range(10)] + \
-              [generate_trapezoid() for i in range(10)] + \
-              [generate_equilaterals() for i in range(10)]
+    invalid = [generate_triangles() for i in range(100 - numvalid)]
 
     shapes = valid + invalid
+    random.shuffle(shapes)
 
+    print(len(shapes))
     for p, tri in enumerate(shapes):
         print(p+1)
         for v in tri:
             print("%.2f %.2f" % v)
 
 def hard():
-    pass
+    numvalid = random.randint(600, 700)
+    valid = [generate_triforce() for i in range(numvalid)]
+    invalid = [generate_triangles() for i in range(100)] + \
+              [generate_trapezoid() for i in range(100)] + \
+              [generate_equilaterals() for i in range(100)]
+
+    shapes = valid + invalid
+    random.shuffle(shapes)
+
+    print(len(shapes))
+    for p, tri in enumerate(shapes):
+        print(p+1)
+        for v in tri:
+            print("%.2f %.2f" % v)
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
