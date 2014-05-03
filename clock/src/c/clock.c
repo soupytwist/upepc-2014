@@ -81,7 +81,7 @@ main(int argc, char **argv)
          * Second digit can be 0-9 UNLESS first digit is 1,
          * in which case, it can only be 0-2.
          */
-        for (d2 = (d1 == 10 ? 0 : 1); (d1 == 10 && d2 <= 9) || (d1 == 1 && d2 <= 2); d2++) {
+        for (d2 = (d1 == 10 ? 1 : 0); (d1 == 10 && d2 <= 9) || (d1 == 1 && d2 <= 2); d2++) {
             /* Third digit can be anything 0-5 */
             for (d3 = 0; d3 <= 5; d3++) {
                 /* Fourth digit can be anything 0-9 */
