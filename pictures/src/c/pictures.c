@@ -1,3 +1,7 @@
+/*
+ * UPEPC 2014 - E. Picture Day
+ * Author: Nick Smith
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "string.h"

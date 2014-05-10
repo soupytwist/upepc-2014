@@ -1,9 +1,12 @@
+/*
+ * UPEPC 2014 - D. Honor Coding
+ * Author: Nick Smith
+ */
 import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
 
 public class Classroom {
 

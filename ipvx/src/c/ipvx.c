@@ -1,3 +1,7 @@
+/*
+ * UPEPC 2014 - B. IPvX
+ * Author: Nickl Smith
+ */
 #include <stdio.h>
 
 int

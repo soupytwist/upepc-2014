@@ -1,3 +1,7 @@
+/*
+ * UPEPC 2014 - C. Broken Clock
+ * Author: Nick Smith
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

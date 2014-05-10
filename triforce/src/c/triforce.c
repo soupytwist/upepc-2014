@@ -1,3 +1,7 @@
+/*
+ * UPEPC 2014 - A. Triforce
+ * Author: Nick Smith
+ */
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
